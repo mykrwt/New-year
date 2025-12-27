@@ -14,46 +14,68 @@
 <body>
     <div class="background-decorations"></div>
 
+    <!-- Audio (Hidden) -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Intro / Tease Section -->
     <!-- Intro / Tease Section -->
     <div id="intro-container">
         <!-- Step 1 -->
         <div class="step active" id="step-1">
-            <h1 class="bounce">Knock Knock! 🚪</h1>
-            <p>Someone is at the door...</p>
-            <button class="btn-primary" onclick="nextStep(2)">Who's there? 👀</button>
+            <div class="gif-sticker">
+                <div class="tenor-gif-embed" data-postid="11246632764297512466" data-share-method="host"
+                    data-aspect-ratio="1.23333" data-width="100%"><a
+                        href="https://tenor.com/view/cute-gif-11246632764297512466">Cute Sticker</a>from <a
+                        href="https://tenor.com/search/cute-stickers">Cute Stickers</a></div>
+            </div>
+            <h1 class="bounce">Hi there... ❤️</h1>
+            <p>I have something special to share with you.</p>
+            <button class="btn-primary" onclick="nextStep(2)">Listen 🎧</button>
         </div>
 
         <!-- Step 2 -->
         <div class="step" id="step-2">
-            <h1>It's your future! ✨</h1>
-            <p>I have a special delivery for you.</p>
-            <button class="btn-primary" onclick="nextStep(3)">Open it! 📦</button>
+            <h1>A little secret... 🤫</h1>
+            <p>I made this cozy corner of the internet just for you.</p>
+            <button class="btn-primary" onclick="nextStep(3)">But why? 🥺</button>
         </div>
 
-        <!-- Step 3: Identity Check -->
+        <!-- Step 3 -->
         <div class="step" id="step-3">
-            <h1>Wait! Verification required. 🕵️‍♀️</h1>
-            <p>Are you the cutest person in the world?</p>
+            <div class="gif-sticker">
+                <div class="tenor-gif-embed" data-postid="11951420229067864601" data-share-method="host"
+                    data-aspect-ratio="0.911647" data-width="100%"><a
+                        href="https://tenor.com/view/cute-gif-11951420229067864601">Cute Sticker</a>from <a
+                        href="https://tenor.com/search/cute-stickers">Cute Stickers</a></div>
+            </div>
+            <h1>Because 2025 gave me the best gift. 🎁</h1>
+            <p>Do you know what it was?</p>
             <div class="btn-group">
-                <button class="btn-primary" onclick="nextStep(4)">Yes, obviously! 💅</button>
-                <button class="btn-secondary" onclick="nextStep(4)">I guess so... 😳</button>
+                <button class="btn-primary" onclick="nextStep(4)">Tell me! ✨</button>
             </div>
         </div>
 
-        <!-- Step 4: Vibe Check -->
+        <!-- Step 4: Romantic realization -->
         <div class="step" id="step-4">
-            <h1>Checking vibe... 📡</h1>
-            <p>Detecting high levels of awesomeness.</p>
-            <button class="btn-primary" onclick="nextStep(5)">Processing... 🔄</button>
+            <div class="gif-sticker">
+                <div class="tenor-gif-embed" data-postid="15488998239354870297" data-share-method="host"
+                    data-aspect-ratio="1.23267" data-width="100%"><a
+                        href="https://tenor.com/view/cute-pinch-so-fluffy-gif-15488998239354870297">Cute Pinch
+                        GIF</a>from <a href="https://tenor.com/search/cute-gifs">Cute GIFs</a></div>
+            </div>
+            <h1 style="font-size: 3rem; color: #FF4081;">It was You. 🌹</h1>
+            <p>You made every single day brighter.</p>
+            <button class="btn-primary" onclick="nextStep(5)">Awww 🥰</button>
         </div>
 
         <!-- Step 5: The Promise (Tricky Button) -->
         <div class="step" id="step-5">
-            <h1>One last rule! 📜</h1>
-            <p>You must promise to smile more in 2026.</p>
+            <h1>One promise for 2026? 🤞</h1>
+            <p>Promise you'll keep smiling like that?</p>
             <div class="btn-group relative-group">
-                <button class="btn-primary" onclick="nextStep(6)">I promise! 😇</button>
-                <!-- Added touch/click support for the trick -->
+                <button class="btn-primary" onclick="nextStep(6)">I promise! 💍</button>
                 <button class="btn-secondary" id="btn-no" onmouseover="dodgeButton()" onclick="handleNoClick()">No
                     😤</button>
             </div>
@@ -61,7 +83,7 @@
 
         <!-- Step 6: Fake Loading -->
         <div class="step" id="step-6">
-            <h1>Uploading happiness... 🔋</h1>
+            <h1>Loading our memories... 🎞️</h1>
             <div class="loading-bar">
                 <div class="fill"></div>
             </div>
@@ -70,9 +92,9 @@
 
         <!-- Step 7: Final -->
         <div class="step" id="step-7">
-            <h1>You made it! 🎉</h1>
-            <p>Your surprise is ready.</p>
-            <button class="btn-primary" onclick="revealSurprise()">Show me! 💖</button>
+            <h1>Ready to celebrate? 🎆</h1>
+            <p>Let's count down together.</p>
+            <button class="btn-primary" onclick="revealSurprise()">Open My Heart 💖</button>
         </div>
     </div>
 
@@ -81,7 +103,13 @@
         <!-- Step 3: Cute Hero -->
         <div class="hero">
             <div class="image-wrapper">
-                <img src="hero.png" alt="Cute character hugging a heart" id="hero-img">
+                <div class="gif-sticker" style="width: 250px;">
+                    <div class="tenor-gif-embed" data-postid="7220873608235801963" data-share-method="host"
+                        data-aspect-ratio="1" data-width="100%"><a
+                            href="https://tenor.com/view/bubu-dudu-bubududukiwi-gif-7220873608235801963">Bubu Dudu
+                            Bubududukiwi Sticker</a>from <a href="https://tenor.com/search/bubu+dudu-stickers">Bubu Dudu
+                            Stickers</a></div>
+                </div>
             </div>
         </div>
 
@@ -120,6 +148,7 @@
     <!-- Fireworks Overlay (Hidden by default) -->
     <canvas id="fireworks-canvas"></canvas>
 
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
     <script src="script.js"></script>
 </body>
 

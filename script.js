@@ -16,14 +16,14 @@ const ctx = canvas.getContext('2d');
 
 // Funny/Cute Messages
 const messages = [
-    "Still waiting... but thinking about you 🥺",
-    "Almost there! My heart is getting excited 💓",
-    "Hurry up New Year 😤✨",
-    "Are you ready for the sparkles? ✨",
-    "Counting down every heartbeat 💕",
-    "Loading new adventures... 🚀",
-    "I hope your outfit is ready! 👗👔",
-    "Sending you virtual hugs while we wait 🤗"
+    "Thinking about your smile... 🥺",
+    "You are my favorite notification 💓",
+    "Can't wait to make more memories �",
+    "You make my world sparkle ✨",
+    "Counting down to hugging you 🤗",
+    "2026 is going to be OUR year 🚀",
+    "Just being with you is a celebration 🥂",
+    "I love you more than pizza (maybe) 🍕❤️"
 ];
 
 // State
@@ -32,6 +32,15 @@ let fireworksActive = false;
 
 // Multi-step Tease Logic
 function nextStep(stepNumber) {
+    // Attempt to play music on first interaction (browser policy requires this)
+    if (stepNumber === 2) {
+        const audio = document.getElementById('bg-music');
+        if (audio) {
+            audio.volume = 0.5;
+            audio.play().catch(e => console.log("Audio autoplay prevented, waiting for next click"));
+        }
+    }
+
     // Hide all steps
     document.querySelectorAll('.step').forEach(el => {
         el.classList.remove('active');
