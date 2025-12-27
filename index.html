@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year Countdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-decorations"></div>
+
+    <!-- Intro / Tease Section -->
+    <div id="intro-container">
+        <!-- Step 1 -->
+        <div class="step active" id="step-1">
+            <h1 class="bounce">Knock Knock! 🚪</h1>
+            <p>Someone is at the door...</p>
+            <button class="btn-primary" onclick="nextStep(2)">Who's there? 👀</button>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step" id="step-2">
+            <h1>It's your future! ✨</h1>
+            <p>I have a special delivery for you.</p>
+            <button class="btn-primary" onclick="nextStep(3)">Open it! 📦</button>
+        </div>
+
+        <!-- Step 3: Identity Check -->
+        <div class="step" id="step-3">
+            <h1>Wait! Verification required. 🕵️‍♀️</h1>
+            <p>Are you the cutest person in the world?</p>
+            <div class="btn-group">
+                <button class="btn-primary" onclick="nextStep(4)">Yes, obviously! 💅</button>
+                <button class="btn-secondary" onclick="nextStep(4)">I guess so... 😳</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Vibe Check -->
+        <div class="step" id="step-4">
+            <h1>Checking vibe... 📡</h1>
+            <p>Detecting high levels of awesomeness.</p>
+            <button class="btn-primary" onclick="nextStep(5)">Processing... 🔄</button>
+        </div>
+
+        <!-- Step 5: The Promise (Tricky Button) -->
+        <div class="step" id="step-5">
+            <h1>One last rule! 📜</h1>
+            <p>You must promise to smile more in 2026.</p>
+            <div class="btn-group relative-group">
+                <button class="btn-primary" onclick="nextStep(6)">I promise! 😇</button>
+                <!-- Added touch/click support for the trick -->
+                <button class="btn-secondary" id="btn-no" onmouseover="dodgeButton()" onclick="handleNoClick()">No
+                    😤</button>
+            </div>
+        </div>
+
+        <!-- Step 6: Fake Loading -->
+        <div class="step" id="step-6">
+            <h1>Uploading happiness... 🔋</h1>
+            <div class="loading-bar">
+                <div class="fill"></div>
+            </div>
+            <p id="loading-text">0%</p>
+        </div>
+
+        <!-- Step 7: Final -->
+        <div class="step" id="step-7">
+            <h1>You made it! 🎉</h1>
+            <p>Your surprise is ready.</p>
+            <button class="btn-primary" onclick="revealSurprise()">Show me! 💖</button>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden Initially) -->
+    <main class="container hidden" id="main-content">
+        <!-- Step 3: Cute Hero -->
+        <div class="hero">
+            <div class="image-wrapper">
+                <img src="hero.png" alt="Cute character hugging a heart" id="hero-img">
+            </div>
+        </div>
+
+        <!-- Step 4: Countdown Timer -->
+        <h1 class="title">New Year Countdown</h1>
+        <div class="countdown-container">
+            <div class="time-card">
+                <span id="days">00</span>
+                <span class="label">Days</span>
+            </div>
+            <div class="time-card">
+                <span id="hours">00</span>
+                <span class="label">Hours</span>
+            </div>
+            <div class="time-card">
+                <span id="minutes">00</span>
+                <span class="label">Minutes</span>
+            </div>
+            <div class="time-card">
+                <span id="seconds">00</span>
+                <span class="label">Seconds</span>
+            </div>
+        </div>
+
+        <!-- Step 5: Funny Cute Messages -->
+        <div class="message-box">
+            <p id="fun-message">Loading cuteness...</p>
+        </div>
+    </main>
+
+    <!-- Step 9: Footer -->
+    <footer>
+        <p>Made with smiles, just for you 💗</p>
+    </footer>
+
+    <!-- Fireworks Overlay (Hidden by default) -->
+    <canvas id="fireworks-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
