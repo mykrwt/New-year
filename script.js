@@ -31,6 +31,16 @@ let messageIndex = 0;
 let fireworksActive = false;
 
 // Multi-step Tease Logic
+// Photos Array
+const photos = [
+    "601517528_1347179697092705_8699861903146348268_n.jpg",
+    "603946599_1611314536878406_8695200202788775778_n.jpg",
+    "605135622_1401592768234377_3745971901943271062_n.jpg",
+    "605184485_1916741218881376_376589858961886785_n.jpg",
+    "606040874_862965342892099_4162549513847158855_n.jpg"
+];
+
+// Multi-step Tease Logic
 function nextStep(stepNumber) {
     // Attempt to play music on first interaction (browser policy requires this)
     if (stepNumber === 2) {
@@ -51,32 +61,52 @@ function nextStep(stepNumber) {
     if (nextEl) {
         nextEl.classList.add('active');
 
-        // Special Case for Loading Step (Step 6)
+        // Special Case for Memory Lane Step (Step 6)
         if (stepNumber === 6) {
-            startFakeLoading();
+            startMemoryLane();
         }
     }
 }
 
-function startFakeLoading() {
-    let progress = 0;
-    const bar = document.querySelector('.loading-bar .fill');
-    const text = document.getElementById('loading-text');
+function startMemoryLane() {
+    const container = document.getElementById('memory-lane');
+    const text = document.getElementById('memory-text');
+    container.innerHTML = ''; // Clear previous if any
 
-    const interval = setInterval(() => {
-        progress += Math.random() * 5;
-        if (progress > 100) progress = 100;
+    // Create elements for each photo
+    photos.forEach((photo, index) => {
+        const div = document.createElement('div');
+        div.classList.add('photo-card');
+        // Random rotation between -5 and 5 deg
+        const rotation = (Math.random() - 0.5) * 10;
+        div.style.setProperty('--rotation', `${rotation}deg`);
+        div.innerHTML = `<img src="${photo}" alt="Memory ${index + 1}">`;
+        container.appendChild(div);
+    });
 
-        if (bar) bar.style.width = `${progress}%`;
-        if (text) text.innerText = `${Math.floor(progress)}%`;
+    // Animate through them
+    let currentIndex = 0;
+    const cards = document.querySelectorAll('.photo-card');
 
-        if (progress === 100) {
-            clearInterval(interval);
+    // Show first
+    showNextPhoto();
+
+    function showNextPhoto() {
+        if (currentIndex < cards.length) {
+            // Update text randomly or sequentially to be cute
+            const captions = ["Remember this? 🥰", "So cute! 📸", "My favorite view 👀", "Time flies... ⏳", "Just perfect 💖"];
+            text.innerText = captions[currentIndex % captions.length];
+
+            cards[currentIndex].classList.add('visible');
+            currentIndex++;
+            setTimeout(showNextPhoto, 2000); // 2 seconds per photo
+        } else {
+            // All shown, wait a bit then finish
             setTimeout(() => {
                 nextStep(7);
-            }, 800);
+            }, 2500);
         }
-    }, 100);
+    }
 }
 
 function revealSurprise() {
